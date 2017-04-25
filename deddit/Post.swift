@@ -9,5 +9,15 @@
 import UIKit
 
 class Post {
+    let title: String
+    let author: String
+    let imageUrl: URL
+    let commentsUrl: URL
     
+    init(title: String, author: String, imageUrl: URL, commentsUrl: URL) {
+        self.title = title
+        self.author = author
+        self.imageUrl = imageUrl
+        self.commentsUrl = commentsUrl
+    }
 }

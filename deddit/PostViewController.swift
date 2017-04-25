@@ -18,6 +18,18 @@ class PostViewController: UITableViewController {
         
         tableView.dataSource = postDataSource
         tableView.register(PostViewCell.self, forCellReuseIdentifier: "PostViewCell")
+        
+        store.fetchFunnyPosts { (result) in
+            switch result {
+            case let .success(posts):
+                self.postDataSource.posts = posts
+                self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+            case let .failure(error):
+                print("Error fetching posts: \(error)")
+                self.postDataSource.posts.removeAll()
+            }
+            
+        }
     }
     
 }

@@ -20,6 +20,9 @@ class PostDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostViewCell", for: indexPath)
         
+        cell.textLabel?.text = posts[indexPath.row].title
+        cell.detailTextLabel?.text = posts[indexPath.row].author
+        
         return cell
     }
 }
